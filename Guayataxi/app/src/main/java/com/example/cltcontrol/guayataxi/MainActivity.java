@@ -56,7 +56,18 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                boolean valor = validarDatosTaxista(nombreChofer, placaChofer, marca, edadChofer);
+                boolean comprobacion = validarDatosTaxista(nombreChofer, placaChofer, marca, edadChofer);
+                if(comprobacion == true){
+                    Toast.makeText(MainActivity.this,
+                            "Datos validos",
+                            Toast.LENGTH_SHORT ).show();
+
+                } else {
+                    Toast.makeText(MainActivity.this,
+                            "Datos invalidos",
+                            Toast.LENGTH_SHORT ).show();
+
+                }
             }
 
         });
@@ -69,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
         boolean comprobacion = true;
 
         ArrayList sectores_select = new ArrayList<RadioButton>();
-
-
 
         if (nombreChofer == null || nombreChofer.length() < 3 || nombreChofer.length() > 30) {
             comprobacion = false;
@@ -88,20 +97,10 @@ public class MainActivity extends AppCompatActivity {
             comprobacion = false;
         }
 
-        if(comprobacion == true){
-            Toast.makeText(MainActivity.this,
-                    "Datos validos",
-                    Toast.LENGTH_SHORT ).show();
-
-        } else {
-            Toast.makeText(MainActivity.this,
-                    "Datos invalidos",
-                    Toast.LENGTH_SHORT ).show();
-
-        }
-
         return comprobacion;
 
     }
+
+
 
 }

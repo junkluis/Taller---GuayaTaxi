@@ -9,21 +9,12 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class NuevoChofer {
+
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
-
-
-}
-
-
-public class EdadDelChoferTesting{
-    @Test
-    public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
+    public void choferPromedio() {
         assertTrue(MainActivity.validarDatosTaxista("Luis", "QWERTY", "Nisan", 55));
     }
-}
 
-//(String nombreChofer, String placaChofer, String marca, int edadChofer) {
+
+}
