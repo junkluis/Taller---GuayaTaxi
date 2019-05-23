@@ -17,34 +17,42 @@
             android:layout_height="50dp" />
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFEB3B"
+            android:text="Guaya Taxi"
+            android:textColor="#000000"
+            android:textColorHighlight="#FFEB3B"
+            android:textSize="30sp" />
+
+        <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nuevo Chofer" />
+            android:text="Formulario: Nuevo Chofer"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/nombres"
+            android:id="@+id/nombreChofer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre y apellido (min, max, caracteres especiales)" />
+            android:text="Nombre del chofer" />
 
         <EditText
-            android:id="@+id/matricula"
+            android:id="@+id/codPlaca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Numero de matrícula - eliminar" />
-
-        <EditText
-            android:id="@+id/placa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Placa (min max, cod provincia, cant numeros y letras)" />
+            android:text="Número de Placa" />
 
         <EditText
             android:id="@+id/edad"
@@ -52,13 +60,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="Edad (24 - 65)" />
+            android:text="Edad" />
 
-        <TextView
-            android:id="@+id/textView8"
+        <Spinner
+            android:id="@+id/marcaAuto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Marca de vehiculo (agregar) (lista vehiculos)" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView6"

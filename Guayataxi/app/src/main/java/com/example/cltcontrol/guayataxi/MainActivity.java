@@ -3,12 +3,15 @@ package com.example.cltcontrol.guayataxi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,48 +21,86 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Button btn_enviarDatos = findViewById(R.id.enviarDatos);
+        final Spinner sp_marca = findViewById(R.id.marcaAuto);
+        String[] str_marcas = new String[]{"Nissan","General Motors","Honda","Toyota","KIA","Mazda"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, str_marcas);
+        sp_marca.setAdapter(adapter);
 
-        EditText et_nombres = findViewById(R.id.nombres);
-        EditText et_matricula = findViewById(R.id.matricula);
-        EditText et_placa = findViewById(R.id.placa);
-        EditText et_edad = findViewById(R.id.edad);
 
-        Button rb_norte = findViewById(R.id.norte);
-        Button rb_centro = findViewById(R.id.centro);
-        Button rb_sur = findViewById(R.id.sur);
-        Button rb_duran = findViewById(R.id.duran);
-        Button rb_sanmbo = findViewById(R.id.samborondon);
+        final EditText et_nombres = findViewById(R.id.nombreChofer);
+        final EditText et_placa = findViewById(R.id.codPlaca);
+        final EditText et_edad = findViewById(R.id.edad);
 
-        ArrayList sectores = new ArrayList<Button>();
+        RadioButton rb_norte = findViewById(R.id.norte);
+        RadioButton rb_centro = findViewById(R.id.centro);
+        RadioButton rb_sur = findViewById(R.id.sur);
+        RadioButton rb_duran = findViewById(R.id.duran);
+        RadioButton rb_sanmbo = findViewById(R.id.samborondon);
+
+        final ArrayList sectores = new ArrayList<RadioButton>();
         sectores.add(rb_norte);
         sectores.add(rb_centro);
         sectores.add(rb_sur);
         sectores.add(rb_duran);
         sectores.add(rb_sanmbo);
 
+
+        //
+        final String nombreChofer = et_nombres.getText().toString();
+        final String placaChofer = et_placa.getText().toString();
+        final String marca = sp_marca.getSelectedItem().toString();
+        final String str_edad = et_edad.getText().toString();
+        final int edadChofer = Integer.parseInt(str_edad);
+
         btn_enviarDatos.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                boolean valor = validarDatosTaxista();
+                boolean valor = validarDatosTaxista(nombreChofer, placaChofer, marca, edadChofer);
             }
 
         });
     }
 
     // function declaration
-    private boolean validarDatosTaxista(EditText nombre, EditText matricula, EditText placa,
-                                        EditText edad, ArrayList<Button> sectores) {
+    static boolean validarDatosTaxista(String nombreChofer, String placaChofer, String marca, int edadChofer) {
 
-        boolean comprobacion = false;
+        String[] marcasHabiles = new String[]{"Nissan","General Motors","Honda","Toyota","KIA","Mazda"};
+        boolean comprobacion = true;
 
-
-        Toast.makeText(MainActivity.this,
-                         "function called Successfully",
-                               Toast.LENGTH_SHORT ).show();
+        ArrayList sectores_select = new ArrayList<RadioButton>();
 
 
-        return true;
+
+        if (nombreChofer == null || nombreChofer.length() < 3 || nombreChofer.length() > 30) {
+            comprobacion = false;
+        }
+
+        if (placaChofer == null || placaChofer.length() != 6 ) {
+            comprobacion = false;
+        }
+
+        if (edadChofer <= 25 || edadChofer >= 65 ) {
+            comprobacion = false;
+        }
+
+        if (!Arrays.asList(marcasHabiles).contains(marca)) {
+            comprobacion = false;
+        }
+
+        if(comprobacion == true){
+            Toast.makeText(MainActivity.this,
+                    "Datos validos",
+                    Toast.LENGTH_SHORT ).show();
+
+        } else {
+            Toast.makeText(MainActivity.this,
+                    "Datos invalidos",
+                    Toast.LENGTH_SHORT ).show();
+
+        }
+
+        return comprobacion;
 
     }
 
