@@ -2,6 +2,7 @@ package com.example.cltcontrol.guayataxi;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         final String placaChofer = et_placa.getText().toString();
         final String marca = sp_marca.getSelectedItem().toString();
         final String str_edad = et_edad.getText().toString();
-        final int edadChofer = Integer.parseInt(str_edad);
+        Log.d("MyApp", str_edad);
+        final int edadChofer = 55;
 
         btn_enviarDatos.setOnClickListener(new View.OnClickListener() {
 
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             comprobacion = false;
         }
 
-        if (edadChofer <= 25 || edadChofer >= 65 ) {
+        if (edadChofer <= 24 || edadChofer >= 66 ) {
             comprobacion = false;
         }
 
@@ -97,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
             comprobacion = false;
         }
 
+        System.out.println(comprobacion);
+
         return comprobacion;
-
     }
-
 
 
 }

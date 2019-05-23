@@ -12,8 +12,23 @@ import static org.junit.Assert.*;
 public class NuevoChofer {
 
     @Test
-    public void choferPromedio() {
-        assertTrue(MainActivity.validarDatosTaxista("Luis", "QWERTY", "Nisan", 55));
+    public void choferJoven() {
+        assertTrue(MainActivity.validarDatosTaxista("Luis", "QWERTY", "Nissan", 25));
+    }
+
+    @Test
+    public void choferTerceraEdad() {
+        assertTrue(MainActivity.validarDatosTaxista("Luis", "QWERTY", "Nissan", 65));
+    }
+
+    @Test
+    public void choferMenorDeEdad() {
+        assertEquals(MainActivity.validarDatosTaxista("Luis", "QWERTY", "Nissan", 24), false);
+    }
+
+    @Test
+    public void choferDemasiadoMayor() {
+        assertEquals(MainActivity.validarDatosTaxista("Luis", "QWERTY", "Nissan", 66), false);
     }
 
 

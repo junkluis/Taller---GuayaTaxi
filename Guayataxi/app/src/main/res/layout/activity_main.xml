@@ -43,24 +43,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Nombre del chofer" />
+            android:hint="Nombre del chofer"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/codPlaca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Número de Placa" />
+            android:hint="Número de placa"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/edad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
-            android:text="Edad" />
+            android:hint="Edad"
+            android:inputType="number" />
 
         <Spinner
             android:id="@+id/marcaAuto"
